@@ -1,0 +1,26 @@
+# Customize BufferMemory
+https://python.langchain.com/docs/modules/memory/conversational_customization
+
+# Stopping Condition
+https://huggingface.co/docs/transformers/main/chat_templating
+https://discuss.huggingface.co/t/implimentation-of-stopping-criteria-list/20040/13
+
+# Generating text - greedy search, beam search etc.
+https://huggingface.co/blog/how-to-generate
+
+# Buffer Memory types 
+Może być za paywallem (czasem da się przeczytać za free, ale nie wiem od czego to zależy)
+https://medium.com/@michael.j.hamilton/conversational-memory-with-langchain-82c25e23ec60
+
+# Leonardo di Caprio calculator example
+https://python.langchain.com/docs/integrations/chat/huggingface/
+
+# How LLMs know when to end
+https://pub.towardsai.net/how-llms-know-when-to-stop-generating-b82a9a57e2c4
+
+# Transformers documentation
+https://huggingface.co/docs/transformers/index
+
+# LLM introduction
+https://blog.dataiku.com/large-language-model-chatgpt
+
