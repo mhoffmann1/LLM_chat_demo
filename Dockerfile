@@ -1,14 +1,7 @@
-# Copyright (c) 2023 Intel Corporation
-# SPDX-License-Identifier: Apache-2.0
-
-# Image for running HuggingFace LLM workloads using Rocky Linux 8.9 and IPEX in a single node configuration
-
 FROM ubuntu:22.04
 
 # Set default shell to /bin/bash
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
-
-
 
 # Install required packages
 RUN apt-get update && \
@@ -18,18 +11,22 @@ RUN apt-get update && \
         python3-pip && \
     apt-get clean
 
-# Set workdir
-WORKDIR /jupyter-notebook
-
-COPY requirements.txt /jupyter-notebook/
-
 # Install Python dependencies
+COPY requirements.txt /opt/.
+
 RUN pip install --no-cache-dir --upgrade pip==24.0 && \
-    pip install -r requirements.txt && \
-    rm -f requirements.txt
+    pip install -r /opt/requirements.txt && \
+    rm -f /opt/requirements.txt
 
 # Create non-root user
 RUN useradd -m user \
-    && chown -R user:user /jupyter-notebook
+    && mkdir /home/user/jupyter-notebook \
+    && chown -R user:user /home/user/jupyter-notebook
 
 USER user
+
+# Copy configuration for jupyter notebook
+COPY jupyter_notebook_config.py /home/user/
+
+# Set workdir
+WORKDIR /home/user
